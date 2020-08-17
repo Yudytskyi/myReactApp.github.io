@@ -1,46 +1,25 @@
-export function moveOnDidMount() {
-  const elem = document.getElementById('slider');
-  elem.onmousedown = e => {
-    if (!this.isMove) {
-      this.currentX = e.clientX;
-      this.currentY = e.clientY;
-    }
-    this.isMove = true;
-  };
-  elem.onmouseup = e => {
-    this.isMove = false;
-  };
-}
-
-export function tick() {
-  this.setState(state => {
-    const { time } = state;
-    const newDate = new Date(time.getTime());
-    newDate.setSeconds(newDate.getSeconds() + 1);
-    clickHandle.next.call(this, [this.setState]);
-    return {
-      time: newDate,
-    };
-  });
-}
-
-export function clear() {
-  if (this.timeoutId) {
-    clearTimeout(this.timeoutId);
-    this.timeoutId = null;
-  }
-}
-
 export const clickHandle = {
+  settings: function () {
+    if (this.state.isShowSettings) {
+      document.getElementById('settings').classList.remove(`active`);
+      this.setState({ isShowSettings: false });
+    } else {
+      document.getElementById('settings').classList.add(`active`);
+      this.setState({ isShowSettings: true });
+    }
+  },
   prev: function () {
-    this.eStop();
+    const {
+      currentSlideNumber,
+      slides: { length },
+    } = this.state;
     this.setState({
-      currentSlideNumber: (this.state.currentSlideNumber - 1 + this.slides.length) % this.slides.length,
+      currentSlideNumber: (currentSlideNumber - 1 + length) % length,
     });
   },
 
   play: function () {
-    this.setState({ isPlaying: !this.state.isPlaying });
+    this.setState({ isPlaying: true });
   },
   stop: function () {
     this.setState({ isPlaying: false });
@@ -52,7 +31,11 @@ export const clickHandle = {
     }
   },
   next: function () {
-    this.setState({ currentSlideNumber: (this.state.currentSlideNumber + 1) % this.slides.length });
+    const {
+      currentSlideNumber,
+      slides: { length },
+    } = this.state;
+    this.setState({ currentSlideNumber: (currentSlideNumber + 1) % length });
   },
   fullscreen: function () {
     this.setState({ isFullScreen: !this.state.isFullScreen });
