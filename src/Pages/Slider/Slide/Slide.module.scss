@@ -1,16 +1,26 @@
 @import '../common/commonStyles';
 
 .imageWrapper {
+  position: absolute;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
   @include flexCenter();
   margin: 0;
   padding: $paddingBase;
+  overflow: hidden;
 }
 .image {
-  position: relative;
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.prevSlide {
+  transform: translateX(-100vw);
+}
+
+.nextSlide {
+  transform: translateX(100vw);
 }
 
 .figcaption {

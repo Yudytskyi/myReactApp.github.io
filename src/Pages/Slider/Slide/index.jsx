@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import styles from './Slide.module.scss';
 import dummy from './img/dummy.jpg';
@@ -8,6 +9,8 @@ function Slide(props) {
   const {
     slide: { src, title, description },
     bgSize,
+    isPrevSlide,
+    isNextSlide,
   } = props;
 
   const bgStyles = {
@@ -17,8 +20,15 @@ function Slide(props) {
     backgroundSize: bgSize,
   };
 
+  const classNameStr = classNames(styles.imageWrapper, {
+    [styles.prevSlide]: isPrevSlide,
+    [styles.nextSlide]: isNextSlide,
+  });
+
+  console.dir(classNameStr);
+
   return (
-    <figure className={styles.imageWrapper}>
+    <figure className={`${classNameStr}`}>
       <div className={styles.image} style={bgStyles}></div>
       <div className={styles.figcaption}>
         <h3 className={styles.figcaption__title}>{title}</h3>
