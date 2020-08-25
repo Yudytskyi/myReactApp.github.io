@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -6,8 +6,9 @@ import styles from './Slide.module.scss';
 import dummy from './img/dummy.jpg';
 
 function Slide(props) {
+  const [isLoad, setIsLoad] = useState(false);
   const {
-    slide: { src, title, description },
+    slide: { id, src, title, description },
     bgSize,
     isPrevSlide,
     isNextSlide,
@@ -26,8 +27,8 @@ function Slide(props) {
   });
 
   return (
-    <figure className={`${classNameStr}`}>
-      <div className={styles.image} style={bgStyles}></div>
+    <figure id={id} className={classNameStr}>
+      <div onLoad={() => {}} className={styles.image} style={bgStyles}></div>
       <div className={styles.figcaption}>
         <h3 className={styles.figcaption__title}>{title}</h3>
         <p className={styles.figcaption__description}>{description}</p>

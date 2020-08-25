@@ -5,7 +5,6 @@
   min-width: 300px;
   min-height: $minWidth;
   padding: 60px 20px;
-
   @include flexCenter(column, space-between);
   background-color: $accentBgColor;
 

@@ -70,9 +70,7 @@ class Carousel extends Component {
         onClick={clickHandle[isPlaying ? 'stop' : 'play'].bind(this, this.setState)}
         onDoubleClick={clickHandle.fullscreen.bind(this, this.setState)}
       >
-        <Slide slide={slides[prevSlideNumber]} bgSize={bgSize} isPrevSlide />
         <Slide slide={slides[currentSlideNumber]} bgSize={bgSize} />
-        <Slide slide={slides[nextSlideNumber]} bgSize={bgSize} isNextSlide />
         <div
           className={styles.buttonsBlock}
           onDoubleClick={e => e.stopPropagation()}

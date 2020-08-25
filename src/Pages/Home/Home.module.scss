@@ -20,9 +20,16 @@
     }
   }
 }
-.calendar {
+.calendarPage {
   background: url('./img/Calendar.png') no-repeat center/contain;
 }
-.slider {
+.sliderPage {
   background: url('./img/Slider.png') no-repeat center/contain;
+}
+.hyperlinksParserPage {
+  @include flexCenter();
+  background: black;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
 }

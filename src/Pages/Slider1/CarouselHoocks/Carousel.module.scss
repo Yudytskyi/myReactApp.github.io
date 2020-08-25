@@ -1,0 +1,6 @@
+@import '../../Slider/common/commonStyles';
+
+.carousel {
+  position: relative;
+  @include flexCenter(row);
+}

@@ -1,0 +1,47 @@
+@import '../common/commonStyles';
+
+.imageWrapper {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  @include flexCenter();
+  margin: 0;
+  padding: $paddingBase;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.prevSlide {
+  transform: translateX(-100%);
+}
+
+.nextSlide {
+  transform: translateX(100%);
+}
+
+.figcaption {
+  width: 80%;
+  height: 8rem;
+  &__title {
+    text-align: center;
+  }
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.88em;
+    overflow: hidden;
+    text-indent: 40px;
+    text-align: justify;
+  }
+}
+
+.positionAbsolute {
+  position: absolute;
+  width: 80%;
+  bottom: 20px;
+}

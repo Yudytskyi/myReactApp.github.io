@@ -1,0 +1,16 @@
+.otherMonth {
+  opacity: 0.5;
+}
+
+.selectedDate {
+  border: 5px solid;
+  color: $titleTextColor;
+}
+
+.currentDate {
+  color: $textActiveColor;
+  border: 5px solid;
+}
+.currentImage {
+  transform: translateX(0%);
+}
