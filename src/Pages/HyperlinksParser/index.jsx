@@ -4,42 +4,24 @@ import LoadingForm from './LoadingForm';
 import styles from './HyperlinksParser.module.scss';
 
 const HyperlinksParser = () => {
-  const [state, setState] = useState({
-    error: null,
-    htmlText: null,
-    isFetching: false,
-  });
+  const [htmlText, setHtmlText] = useState('');
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
 
+  const regExpressionTagA = /<a\s.*?<\/a>/gi;
   const handleSubmit = ({ url }) => {
-    return fetch(url, {
+    void fetch(url, {
       method: 'GET',
       'Content-type': 'text/html',
     })
       .then(response => response.text())
-      .then(data => {
-        setState({ ...state, htmlText: data });
-      })
-      .catch(error => {
-        setState({ ...state, error });
-      });
+      .then(data => data.match(regExpressionTagA))
+      .then(setHtmlText)
+      .catch(setError)
+      .finally(setIsFetching(true));
   };
-
-  const parseHtmlText = str => {
-    // const regExpression = /<[Aa]\s+.*?href\s*?=\s*?(?<quote>\\?['"])(?<hyperLinkValue>.*?)\k<quote>.*?>(?<content>.*?)<\/[Aa]\s?>/g;
-    const regExpression = /(?:(?<=<a\s)(.+?)(?=<\/a>))?(?<=href=").*?(?=")|(?<=>)[^<>]+?(?=<\/a)/g;
-    // const regExpression = /(?<=<\s?[a]\s+?).*?(?=<\s?\/a>)/g;
-
-    return `${str}`.match(regExpression);
-  };
-
-  const { htmlText } = state;
-  const res1 = [
-    { link: 'https://adjg;odfhag', label: 'label' },
-    { link: 'https://adjg;odfhag', label: 'label' },
-    { link: 'https://adjg;odfhag', label: 'label' },
-    { link: 'https://adjg;odfhag', label: 'label' },
-    { link: 'https://adjg;odfhag', label: 'label' },
-  ];
+  const regExpressionLink = /(?<=href\s?=.*?(?<quote>['"]))(?<link>.*?)(?=\k<quote>>)/g;
+  const regExpressionLabel = /(?<=>\s?)(?<label>.*?)(?=<\s?\/a)/g;
 
   return (
     <article>
@@ -47,7 +29,7 @@ const HyperlinksParser = () => {
         ←
       </a>
       <LoadingForm onSubmit={handleSubmit} />
-      {htmlText && (
+      {isFetching && (
         <table className={styles.table}>
           <thead className={styles.table__head}>
             <tr>
@@ -56,16 +38,15 @@ const HyperlinksParser = () => {
             </tr>
           </thead>
           <tbody className={styles.table__body}>
-            {res1.map(({ link, label }, index) => (
+            {[...htmlText].map((el, index) => (
               <tr key={index}>
-                <th>{link}</th>
-                <th>{label}</th>
+                <th>{el.match(regExpressionLink)}</th>
+                <th>{el.match(regExpressionLabel)}</th>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      {parseHtmlText(htmlText)}
     </article>
   );
 };
