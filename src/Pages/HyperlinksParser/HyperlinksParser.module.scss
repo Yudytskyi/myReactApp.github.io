@@ -7,3 +7,34 @@
 .hyperLink {
   color: red;
 }
+.table {
+  width: 100vw;
+  border: 2px solid;
+  &__head,
+  &__body {
+    border: 2px solid;
+    font-size: 1.5rem;
+    & tr {
+      &:first-child {
+        width: 75%;
+      }
+      &:last-child {
+        width: 25%;
+      }
+      & > th {
+        border: 1px solid;
+        text-align: center;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &__body {
+    font-size: 1rem;
+    & tr {
+      & th {
+        text-align: left;
+      }
+    }
+  }
+}

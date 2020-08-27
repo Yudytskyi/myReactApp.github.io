@@ -8,12 +8,7 @@ const LoadingValidationSchema = Yup.object().shape({ url: Yup.string().url().req
 
 const LoadingForm = ({ onSubmit }) => {
   return (
-    <Formik
-      onSubmit={onSubmit}
-      initialValues={{ urlValue: '' }}
-      validationSchema={LoadingValidationSchema}
-      validateOnBlur
-    >
+    <Formik onSubmit={onSubmit} initialValues={{ url: '' }} validationSchema={LoadingValidationSchema} validateOnBlur>
       {props => {
         return (
           <Form className={styles.form}>
