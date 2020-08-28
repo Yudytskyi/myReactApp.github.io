@@ -2,13 +2,8 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 16px;
-  color: red;
   font-size: 1.5rem;
   &__input {
-    position: relative;
-    width: 100%;
     padding: 10px;
     margin: 10px 0;
     text-transform: capitalize;
@@ -28,6 +23,7 @@
     text-transform: uppercase;
     color: royalblue;
     font-size: 1.5rem;
+    border-radius: 10px;
   }
   &__error {
     color: red;

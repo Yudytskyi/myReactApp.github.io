@@ -20,32 +20,28 @@ const HyperlinksParser = () => {
       .catch(setError)
       .finally(setIsFetching(true));
   };
-  const regExpressionLink = /(?<=href\s?=.*?(?<quote>['"]))(?<link>.*?)(?=\k<quote>>)/g;
-  const regExpressionLabel = /(?<=>\s?)(?<label>.*?)(?=<\s?\/a)/g;
+  const regExpressionLink = /(?<=href\s?=.*?(?<quote>['"]))(?<link>.*?)(?=\k<quote>>?)/;
+  const regExpressionLabel = /(?<=>\s?).*?(?=<\s?\/a)/;
 
   return (
-    <article>
+    <article className={styles.article}>
       <a className="returnLink" href="/">
         ←
       </a>
       <LoadingForm onSubmit={handleSubmit} />
       {isFetching && (
-        <table className={styles.table}>
-          <thead className={styles.table__head}>
-            <tr>
-              <th>Hyperlink value</th>
-              <th>Link label</th>
-            </tr>
-          </thead>
-          <tbody className={styles.table__body}>
-            {[...htmlText].map((el, index) => (
-              <tr key={index}>
-                <th>{el.match(regExpressionLink)}</th>
-                <th>{el.match(regExpressionLabel)}</th>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className={styles.table}>
+          <div className={styles.table__item}>
+            <div className={styles.table__item_link}>Hyperlink value</div>
+            <div className={styles.table__item_label}>Link label</div>
+          </div>
+          {[...htmlText].map((el, index) => (
+            <div className={styles.table__item} key={index}>
+              <div className={styles.table__item_link}>{el.match(regExpressionLink)}</div>
+              <div className={styles.table__item_label}>{el.match(regExpressionLabel)}</div>
+            </div>
+          ))}
+        </div>
       )}
     </article>
   );
