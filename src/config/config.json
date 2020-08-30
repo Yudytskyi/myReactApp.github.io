@@ -1,0 +1,10 @@
+{
+  "api": {
+    "baseUrl": "https://randomuser.me:443/api/",
+    "seed": "Yudytskyi",
+    "user": {
+      "fields": ["id", "email", "name", "picture", "gender"],
+      "queryParams": ["seed", "page", "results", "inc"]
+    }
+  }
+}

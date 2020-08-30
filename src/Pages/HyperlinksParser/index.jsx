@@ -6,7 +6,7 @@ import styles from './HyperlinksParser.module.scss';
 const HyperlinksParser = () => {
   const [htmlText, setHtmlText] = useState('');
   const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const regExpressionTagA = /<a\s.*?<\/a>/gi;
   const handleSubmit = ({ url }) => {

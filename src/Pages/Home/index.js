@@ -15,6 +15,9 @@ const Home = () => {
       >
         Hyper links Parser
       </Link>
+      <Link className={`${styles.homePage__link} ${styles.userLoader}`} to="/userLoader" title="UserLoader">
+        UserLoader
+      </Link>
     </div>
   );
 };

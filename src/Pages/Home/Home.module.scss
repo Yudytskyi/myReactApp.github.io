@@ -1,23 +1,33 @@
 @import '../../common/commonStyles';
 
 .homePage {
-  @include flexCenter(column, space-around);
+  @include flexCenter(row, space-around);
   background-color: cadetblue;
   min-width: 100vw;
   min-height: 100vh;
+  flex-wrap: wrap;
   color: white;
   font-weight: 900;
+}
 
-  &__link {
-    width: 300px;
-    height: 180px;
-    border: 2px solid cadetblue;
-    transition: transform 0.25s ease, border 0.25s ease;
+.calendarPage,
+.sliderPage,
+.hyperlinksParserPage,
+.userLoader {
+  @include flexCenter();
+  width: 300px;
+  height: 180px;
+  margin: 30px;
+  border: 2px solid cadetblue;
+  background: black;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, border 0.25s ease;
 
-    &:hover {
-      transform: scale(0.97);
-      border: 1px solid red;
-    }
+  &:hover {
+    transform: scale(0.97);
+    border: 1px solid red;
   }
 }
 .calendarPage {
@@ -25,11 +35,4 @@
 }
 .sliderPage {
   background: url('./img/Slider.png') no-repeat center/contain;
-}
-.hyperlinksParserPage {
-  @include flexCenter();
-  background: black;
-  color: white;
-  font-size: 2rem;
-  text-decoration: none;
 }

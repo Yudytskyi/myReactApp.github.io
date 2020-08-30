@@ -4,8 +4,10 @@ import styles from './Spinner.module.scss';
 
 function Spinner() {
   return (
-    <div className={styles.spinner} id="spinner">
-      <div className={styles.loader}></div>
+    <div className={styles.spinner}>
+      <div className={styles.spinner} id="spinner">
+        <div className={styles.loader}></div>
+      </div>
     </div>
   );
 }

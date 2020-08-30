@@ -60,8 +60,8 @@ class Carousel extends Component {
         size: iconSize,
       };
     };
-    const prevSlideNumber = (currentSlideNumber - 1 + slides.length) % slides.length;
-    const nextSlideNumber = (currentSlideNumber + 1) % slides.length;
+    // const prevSlideNumber = (currentSlideNumber - 1 + slides.length) % slides.length;
+    // const nextSlideNumber = (currentSlideNumber + 1) % slides.length;
 
     return (
       <div

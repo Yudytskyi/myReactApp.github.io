@@ -1,0 +1,47 @@
+@import '../../../common/commonStyles';
+
+.item {
+  min-width: 360px;
+  max-width: 360px;
+  border: 5px solid grey;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 15px 0;
+  @include flexCenter;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: border 0.25s ease, background-color 0.25s ease;
+  &:hover {
+    border: 5px solid red;
+    cursor: pointer;
+  }
+  &__fullName {
+    font-size: 2rem;
+  }
+  &__email {
+    font-size: 1.5rem;
+  }
+  & span {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  &__image {
+    width: 90%;
+    border-radius: 10px;
+  }
+}
+
+.isSelected {
+  background-color: rgba(145, 235, 160, 0.644);
+}
+
+.gender {
+  & img {
+    border-radius: 50%;
+  }
+}
