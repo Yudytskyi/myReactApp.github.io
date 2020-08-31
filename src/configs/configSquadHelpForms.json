@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "type": "text",
+      "name": "firstName",
+      "placeholder": "First name"
+    },
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last name"
+    },
+    {
+      "type": "text",
+      "name": "displayName",
+      "placeholder": "Display Name"
+    },
+    {
+      "type": "text",
+      "name": "emailName",
+      "placeholder": "Email Address"
+    },
+    {
+      "type": "password",
+      "name": "userPassword",
+      "placeholder": "password"
+    },
+    {
+      "type": "text",
+      "name": "password",
+      "placeholder": "Password Confirmation"
+    }
+  ],
+  "initialValues": {
+    "firstName": "",
+    "lastName": "",
+    "displayName": "",
+    "email": "",
+    "userPassword": "",
+    "confirmPassword": ""
+  }
+}

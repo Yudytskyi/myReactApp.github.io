@@ -1,0 +1,84 @@
+@import '../../common/commonStyles';
+
+// .contentContainer {
+//   width: 100vw;
+//   min-height: 100vh;
+//   @include flexCenter;
+// }
+// .header {
+//   width: 100%;
+//   &__imageWrapper {
+//   }
+//   &__button {
+//   }
+// }
+
+// .squadHelpForms {
+//   //   width: 100vw;
+//   //   min-height: 100vh;
+//   //   @include flexCenter;
+// }
+
+.content {
+  position: relative;
+  z-index: 0;
+}
+.free_signup_container {
+  background-color: #3ea9f5;
+  background-repeat: repeat;
+  background-size: 209px;
+  background-position: 50% -1%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  position: relative;
+  padding: 20px 0;
+}
+
+.signup {
+  max-width: 1430px;
+  min-height: 650px;
+  &__container {
+    padding: 10px 20px 30px;
+    // max-width: 595px;
+    margin-top: 80px;
+  }
+  &__header {
+    margin-top: 26px;
+    padding: 0 49px 0 45px;
+  }
+  &__info {
+    border: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 18px;
+    color: white;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  &__form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.logo {
+  text-align: left;
+  width: 93.5%;
+  margin-top: 6px;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+}
+.loginButton {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  width: 3%;
+  margin-top: 0;
+  position: relative;
+}

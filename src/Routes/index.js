@@ -6,6 +6,7 @@ import Calendar from '../Pages/Calendar';
 import Slider from '../Pages/Slider';
 import HyperlinksParser from '../Pages/HyperlinksParser';
 import UserLoader from '../Pages/UsersLoader';
+import SquadHelpForms from '../Pages/SquadHelpForms';
 
 export const Routes = () => {
   return (
@@ -14,6 +15,7 @@ export const Routes = () => {
       <Route component={Slider} path="/slider" />
       <Route component={HyperlinksParser} path="/hyperlinksParser" />
       <Route component={UserLoader} path="/userLoader" />
+      <Route component={SquadHelpForms} path="/squadHelpForms" />
       <Route component={Home} path="/" />
       <Route render={() => <Redirect to="/" />} />
     </Switch>

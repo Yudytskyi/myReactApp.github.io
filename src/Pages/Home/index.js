@@ -18,6 +18,9 @@ const Home = () => {
       <Link className={`${styles.homePage__link} ${styles.userLoader}`} to="/userLoader" title="UserLoader">
         UserLoader
       </Link>
+      <Link className={`${styles.homePage__link} ${styles.squadHelpForms}`} to="/squadHelpForms" title="SquadHelpForms">
+        SquadHelpForms
+      </Link>
     </div>
   );
 };

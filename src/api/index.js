@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import queryString from 'query-string';
-import config from './../config/config.json';
+import configUsers from './../configs/configUsers.json';
 
 const {
   api: { baseUrl, seed, user: USER_CONFIG },
-} = config;
+} = configUsers;
 
 export const getUsers = (options = {}) => {
   const defaultOptions = {

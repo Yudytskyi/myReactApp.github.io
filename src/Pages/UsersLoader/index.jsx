@@ -27,7 +27,6 @@ const UsersLoader = props => {
 
   const handleNumberPage = num => {
     setCurrentPage(num);
-    console.log(num);
   };
 
   if (isFetching) {
