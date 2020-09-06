@@ -4,25 +4,41 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  &__dots {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 0 10px;
-    font-size: 2rem;
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 10px;
+  font-size: 2rem;
+}
+.button {
+  box-sizing: border-box;
+  border-width: 2px;
+  border-color: rgba(95, 158, 160, 1);
+  background-color: rgba(95, 158, 160, 0.6);
+  padding: 0;
+  @include flexCenter;
+  min-width: 3rem;
+  height: 3rem;
+  margin: 3px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+  transition: font-size 0.25s ease;
+  &:active {
+    border-style: none;
   }
-  & button {
-    @include flexCenter;
-    min-width: 3rem;
-    height: 3rem;
-    margin: 3px;
-    border-radius: 10px;
-    font-size: 1.3rem;
-    &:hover {
-      cursor: pointer;
-    }
-    &:focus {
-      border: 5px solid;
-    }
+  &:hover {
+    cursor: pointer;
   }
+  &:focus {
+    border: 5px solid;
+  }
+}
+.active {
+  border-color: blue;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }

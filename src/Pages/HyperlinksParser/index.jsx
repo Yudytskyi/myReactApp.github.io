@@ -25,9 +25,6 @@ const HyperlinksParser = () => {
 
   return (
     <article className={styles.article}>
-      <a className="returnLink" href="/">
-        ←
-      </a>
       <LoadingForm onSubmit={handleSubmit} />
       {isFetching && (
         <div className={styles.table}>

@@ -10,9 +10,6 @@ function Slider(props) {
   const { slides, sliderStyles } = props;
   return (
     <article id="slider" className={styles.contentContainer} style={{ top: '0px', left: '0px' }}>
-      <a className="returnLink" href="/">
-        ←
-      </a>
       <Carousel slides={slides} sliderStyles={sliderStyles} />
     </article>
   );

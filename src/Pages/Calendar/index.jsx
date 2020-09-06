@@ -43,9 +43,6 @@ const Calendar = props => {
 
   return (
     <article className={styles.contentContainer}>
-      <a className="returnLink" href="/">
-        ←
-      </a>
       {calendarDate && <CalendarDate {...commonProps} />}
       {month && <Month {...commonProps} />}
       {week && <Week {...commonProps} />}

@@ -1,0 +1,28 @@
+@import '../common/commonStyles';
+
+.main {
+  position: relative;
+  min-width: 100vw;
+  min-height: calc(100vh - 35px);
+}
+
+.mainHeader {
+  @include flexCenter;
+  height: 35px;
+  background-color: cadetblue;
+  margin: 0;
+
+  & > a {
+    text-decoration: none;
+    letter-spacing: 10px;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 0 5px black;
+    transition: font-size 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+  }
+}

@@ -33,11 +33,7 @@ function LoginForm() {
             <Field name="email" type="text" placeholder="user email-address" />
             <ErrorMessage name="email" />
             <br />
-            <Field
-              name="password"
-              type="password"
-              placeholder="user password"
-            />
+            <Field name="password" type="password" placeholder="user password" />
             <ErrorMessage name="password" />
             <br />
             <button type="submit">Login</button>

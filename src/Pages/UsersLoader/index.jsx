@@ -4,25 +4,33 @@ import { getUsers } from './../../api';
 import styles from './UsersLoader.module.scss';
 
 import UsersList from './UsersList';
-import Spinner from '../Spinner';
+import Spinner from '../../components/Spinner';
 import Pagination from './Pagination';
 
 const UsersLoader = props => {
-  const { maxAmountItem, amountOfColumns } = props;
+  const { maxAmountItem, amountOfRows } = props;
   const [isFetching, setIsFetching] = useState(true);
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [amountItemOnPage, setAmountItemOnPage] = useState(0);
+  const [amountItemOnPage, setAmountItemOnPage] = useState(1);
+  const [numberOfLastPage, setNumberOfLastPage] = useState(1);
   const [error, setError] = useState(null);
   useEffect(() => {
     const rootElement = document.getElementById('root');
-    const amountOfRows = Math.floor(rootElement.clientWidth / 381);
+    const amountOfColumns = Math.floor(rootElement.clientWidth / 381);
     setAmountItemOnPage(amountOfRows * amountOfColumns);
     setCurrentPage(1);
   }, []);
   useEffect(() => {
     setIsFetching(true);
-    getUsers({ page: currentPage, results: amountItemOnPage }).then(setUsers, setError).finally(setIsFetching(false));
+    setNumberOfLastPage(Math.ceil(maxAmountItem / amountItemOnPage));
+    getUsers({
+      page: currentPage,
+      results:
+        currentPage < numberOfLastPage ? amountItemOnPage : maxAmountItem - (numberOfLastPage - 1) * amountItemOnPage,
+    })
+      .then(setUsers, setError)
+      .finally(() => setIsFetching(false));
   }, [currentPage]);
 
   const handleNumberPage = num => {
@@ -37,17 +45,9 @@ const UsersLoader = props => {
   }
   return (
     <>
-      <a className="returnLink" href="/">
-        ←
-      </a>
       <div className={styles.pageUsers}>
         <UsersList users={users} />
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={handleNumberPage}
-          amountItemOnPage={amountItemOnPage}
-          maxAmountItem={maxAmountItem}
-        />
+        <Pagination currentPage={currentPage} setCurrentPage={handleNumberPage} numberOfLastPage={numberOfLastPage} />
       </div>
     </>
   );
@@ -60,6 +60,6 @@ UsersLoader.propTypes = {
 
 UsersLoader.defaultProps = {
   maxAmountItem: 500,
-  amountOfColumns: 3,
+  amountOfRows: 3,
 };
 export default UsersLoader;
