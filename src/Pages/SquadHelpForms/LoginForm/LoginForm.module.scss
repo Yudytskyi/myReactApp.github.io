@@ -1,0 +1,38 @@
+@import '../../../common/commonStyles';
+
+.form {
+  @include flexCenter(column, center, flex-start);
+  &__input {
+    margin: 5px;
+  }
+  &__error {
+    margin: 5px;
+  }
+  &__label {
+    margin: 5px;
+  }
+  &__button {
+    margin: 5px;
+  }
+}
+.loginForm {
+  max-width: 1430px;
+  min-height: 650px;
+  padding: 10px 20px 30px;
+  margin-top: 80px;
+
+  &__info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 18px;
+    color: white;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  &__form {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+}

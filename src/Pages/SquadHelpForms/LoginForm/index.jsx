@@ -1,47 +1,56 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
-const LOGIN_VALIDATION_SCHEMA = Yup.object().shape({
-  email: Yup.string().trim().email().required(),
-  password: Yup.string()
-    .matches(
-      /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?\d)^.{8,64}$/,
-      'Your password must be at least 8 characters long, be of mixed case and also contain a digit or symbol.'
-    )
-    .required(),
-});
+import Input from '../components/Input';
+import configSquadHelpForms from '../../../configs/configSquadHelpForms.json';
+import styles from './LoginForm.module.scss';
 
-function LoginForm() {
-  const handleSubmit = (values, formikBag) => {
-    console.dir(values);
-  };
+import { SIGN_UP_VALIDATION_SCHEMA } from '../constants';
+
+const { fields, initialValues } = configSquadHelpForms;
+
+function LoginForm(props) {
+  const { onSubmit } = props;
+
+  const mapField = (field, index) => (
+    <Field key={index} {...field}>
+      {fieldProps => (
+        <label className={styles.form__label}>
+          <Input className={styles.form__input} {...fieldProps} {...field} />
+          <ErrorMessage className={styles.form__error} name={fieldProps.field.name} />
+        </label>
+      )}
+    </Field>
+  );
 
   return (
-    <Formik
-      onSubmit={handleSubmit}
-      initialValues={{
-        email: '',
-        password: '',
-      }}
-      validationSchema={LOGIN_VALIDATION_SCHEMA}
-    >
-      {formikProps => {
-        const { errors, touched } = formikProps;
-        return (
-          <Form>
-            <Field name="email" type="text" placeholder="user email-address" />
-            <ErrorMessage name="email" />
-            <br />
-            <Field name="password" type="password" placeholder="user password" />
-            <ErrorMessage name="password" />
-            <br />
-            <button type="submit">Login</button>
-          </Form>
-        );
-      }}
-    </Formik>
+    <div className={styles.loginForm}>
+      <div className={styles.loginForm__info}>
+        <h2>CREATE AN ACCOUNT</h2>
+        <h4>We always keep your name and email address private.</h4>
+      </div>
+      <div className={styles.loginForm__form}>
+        <Formik onSubmit={onSubmit} initialValues={initialValues} validationSchema={SIGN_UP_VALIDATION_SCHEMA}>
+          {formikProps => (
+            <Form className={styles.form}>
+              {fields.map(mapField)}
+
+              <button className={styles.form__button} type="submit">
+                Sign Up
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </div>
   );
 }
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+LoginForm.defaultProps = {};
 
 export default LoginForm;
