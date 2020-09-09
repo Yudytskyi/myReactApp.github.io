@@ -2,6 +2,8 @@
 
 .content {
   position: relative;
+  box-sizing: border-box;
+  padding: 16px;
   z-index: 0;
   width: 100vw;
   min-height: 100vh;
@@ -16,7 +18,7 @@
 }
 
 .header {
-  @include flexCenter(row);
+  @include flexCenter(row, space-between);
   &__logo {
     text-align: left;
     width: 93.5%;
@@ -26,21 +28,15 @@
     zoom: 1;
   }
   &__button {
-    padding: 0;
-    margin: 0;
-    border: none;
-    a {
-      padding: 10px 15px;
-      color: white;
-      background: #3ea9f5;
-      border: 1px solid rgba(255, 255, 255, 0.77);
-      border-radius: 4px;
-      font-size: 18px;
-      font-weight: 600;
-      margin-right: 0px;
-      line-height: 22px;
-      text-decoration: none;
-      margin-top: 0px;
-    }
+    padding: 10px 15px;
+    color: white;
+    background: #3ea9f5;
+    border: 1px solid rgba(255, 255, 255, 0.77);
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 0px;
+    line-height: 22px;
+    text-decoration: none;
   }
 }

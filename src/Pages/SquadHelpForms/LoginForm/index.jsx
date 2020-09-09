@@ -16,9 +16,17 @@ function LoginForm(props) {
   const mapField = (field, index) => (
     <Field key={index} {...field}>
       {fieldProps => (
-        <label className={styles.form__label}>
+        <label className={`${styles.form__label} ${styles[field.type]}`}>
           <Input className={styles.form__input} {...fieldProps} {...field} />
-          <ErrorMessage className={styles.form__error} name={fieldProps.field.name} />
+          {(field.title || field.subtitle) && (
+            <div className={styles.wrapper}>
+              <p className={styles.title}>{field.title}</p>
+              <span className={styles.subtitle}>{field.subtitle}</span>
+            </div>
+          )}
+          <div className={styles.form__error}>
+            <ErrorMessage name={fieldProps.field.name} />
+          </div>
         </label>
       )}
     </Field>
@@ -32,16 +40,11 @@ function LoginForm(props) {
       </div>
       <div className={styles.loginForm__form}>
         <Formik onSubmit={onSubmit} initialValues={initialValues} validationSchema={SIGN_UP_VALIDATION_SCHEMA}>
-          {formikProps => (
-            <Form className={styles.form}>
-              {fields.map(mapField)}
-
-              <button className={styles.form__button} type="submit">
-                Sign Up
-              </button>
-            </Form>
-          )}
+          {formikProps => <Form className={styles.form}>{fields.map(mapField)}</Form>}
         </Formik>
+        {/* <div>
+          <Input className={styles.form__input_radio} {...fieldProps} {...field} />
+        </div> */}
       </div>
     </div>
   );
