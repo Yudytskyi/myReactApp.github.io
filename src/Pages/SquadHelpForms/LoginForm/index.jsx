@@ -1,36 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import PropTypes from 'prop-types';
 
-import Input from '../components/Input';
-import configSquadHelpForms from '../../../configs/configSquadHelpForms.json';
+import CreateForm from '../components/CreateForm';
 import styles from './LoginForm.module.scss';
-
-import { SIGN_UP_VALIDATION_SCHEMA } from '../constants';
-
-const { fields, initialValues } = configSquadHelpForms;
-
 function LoginForm(props) {
-  const { onSubmit } = props;
-
-  const mapField = (field, index) => (
-    <Field key={index} {...field}>
-      {fieldProps => (
-        <label className={`${styles.form__label} ${styles[field.type]}`}>
-          <Input className={styles.form__input} {...fieldProps} {...field} />
-          {(field.title || field.subtitle) && (
-            <div className={styles.wrapper}>
-              <p className={styles.title}>{field.title}</p>
-              <span className={styles.subtitle}>{field.subtitle}</span>
-            </div>
-          )}
-          <div className={styles.form__error}>
-            <ErrorMessage name={fieldProps.field.name} />
-          </div>
-        </label>
-      )}
-    </Field>
-  );
+  const { onSubmit, validationSchema, fields, initialValues } = props;
 
   return (
     <div className={styles.loginForm}>
@@ -39,19 +13,19 @@ function LoginForm(props) {
         <h4>We always keep your name and email address private.</h4>
       </div>
       <div className={styles.loginForm__form}>
-        <Formik onSubmit={onSubmit} initialValues={initialValues} validationSchema={SIGN_UP_VALIDATION_SCHEMA}>
-          {formikProps => <Form className={styles.form}>{fields.map(mapField)}</Form>}
-        </Formik>
-        {/* <div>
-          <Input className={styles.form__input_radio} {...fieldProps} {...field} />
-        </div> */}
+        <CreateForm
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+          fields={fields}
+          initialValues={initialValues}
+        />
       </div>
     </div>
   );
 }
 
 LoginForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  // onSubmit: PropTypes.func.isRequired,
 };
 
 LoginForm.defaultProps = {};
