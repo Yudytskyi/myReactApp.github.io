@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 import styles from './SquadHelpForms.module.scss';
 import logo from './logo.png';
-import configSquadHelpForms from '../../configs/configSquadHelpForms.json';
-import { SIGN_UP_VALIDATION_SCHEMA, LOGIN_VALIDATION_SCHEMA } from './constants';
 
 const SquadHelpForms = () => {
-  const { loginFields, loginInitialValues, signApFields, signApInitialValues } = configSquadHelpForms;
   const [isLogin, setIsLogin] = useState(true);
   const onLogin = () => {
     console.log('onLogin');
@@ -28,21 +26,7 @@ const SquadHelpForms = () => {
             {isLogin ? 'Login' : 'Signup'}
           </button>
         </header>
-        {isLogin ? (
-          <LoginForm
-            onSubmit={onLogin}
-            validationSchema={LOGIN_VALIDATION_SCHEMA}
-            fields={loginFields}
-            initialValues={loginInitialValues}
-          />
-        ) : (
-          <LoginForm
-            onSubmit={onSignap}
-            validationSchema={SIGN_UP_VALIDATION_SCHEMA}
-            fields={signApFields}
-            initialValues={signApInitialValues}
-          />
-        )}
+        {isLogin ? <SignUpForm onSubmit={onSignap} /> : <LoginForm onSubmit={onLogin} />}
       </div>
     </main>
   );

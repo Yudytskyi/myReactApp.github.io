@@ -1,4 +1,6 @@
 @import '../../common/commonStyles';
+@import './LoginForm/LoginForm.module.scss';
+@import './SignUpForm/SignApForm.module.scss';
 
 .content {
   position: relative;
@@ -8,7 +10,7 @@
   width: 100vw;
   min-height: 100vh;
   background-color: #3ea9f5;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .container {

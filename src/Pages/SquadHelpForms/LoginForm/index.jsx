@@ -1,33 +1,36 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import { LOGIN_VALIDATION_SCHEMA } from '../constants';
+import configSquadHelpForms from '../../../configs/configSquadHelpForms.json';
 import CreateForm from '../components/CreateForm';
 import styles from './LoginForm.module.scss';
-function LoginForm(props) {
-  const { onSubmit, validationSchema, fields, initialValues } = props;
+
+function LoginForm({ onSubmit }) {
+  const { loginFields, loginInitialValues } = configSquadHelpForms;
 
   return (
-    <div className={styles.loginForm}>
+    <div className={styles.loginForm__content}>
       <div className={styles.loginForm__info}>
-        <h2>CREATE AN ACCOUNT</h2>
-        <h4>We always keep your name and email address private.</h4>
+        <h2>LOGIN TO YOUR ACCOUNT</h2>
       </div>
       <div className={styles.loginForm__form}>
         <CreateForm
           onSubmit={onSubmit}
-          validationSchema={validationSchema}
-          fields={fields}
-          initialValues={initialValues}
+          validationSchema={LOGIN_VALIDATION_SCHEMA}
+          fields={loginFields}
+          initialValues={loginInitialValues}
+          formName="loginForm"
         />
       </div>
     </div>
   );
 }
 
-LoginForm.propTypes = {
-  // onSubmit: PropTypes.func.isRequired,
-};
+// LoginForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
-LoginForm.defaultProps = {};
+// LoginForm.defaultProps = {};
 
 export default LoginForm;

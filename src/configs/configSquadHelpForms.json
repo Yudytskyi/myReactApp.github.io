@@ -1,56 +1,29 @@
 {
   "loginFields": [
     {
-      "type": "text",
-      "name": "firstName",
-      "placeholder": "First name"
-    },
-    {
-      "type": "text",
-      "name": "lastName",
-      "placeholder": "Last name"
-    },
-    {
-      "type": "text",
-      "name": "displayName",
-      "placeholder": "Display Name"
-    },
-    {
       "type": "email",
-      "name": "emailName",
-      "placeholder": "Email Address"
+      "name": "userEmail",
+      "placeholder": "Email address"
     },
     {
       "type": "password",
       "name": "userPassword",
-      "placeholder": "password"
-    },
-    {
-      "type": "text",
-      "name": "password",
-      "placeholder": "Password Confirmation"
-    },
-    {
-      "type": "radio",
-      "name": "radio",
-      "title": "Join As a Buyer",
-      "subtitle": "I am looking for a Name, Logo or Tagline for my business, brand or product."
-    },
-    {
-      "type": "radio",
-      "name": "radio",
-      "title": "Join As a Creative or Marketplace Seller",
-      "subtitle": "I plan to submit name ideas, Logo designs or sell names in Domain Marketplace."
+      "placeholder": "Password"
     },
     {
       "type": "checkbox",
-      "name": "checkbox",
-      "subtitle": "Allow Squadhelp to send marketing/proomotional offers from to time"
+      "name": "rememberMe",
+      "subtitle": "Remember Me"
+    },
+    {
+      "type": "button",
+      "name": "forgotPassword",
+      "title": "Forgot Password"
     },
     {
       "type": "button",
       "name": "submit",
-      "title": "Create account"
+      "title": "LOGIN"
     }
   ],
   "loginInitialValues": {
@@ -79,17 +52,17 @@
     },
     {
       "type": "email",
-      "name": "emailName",
+      "name": "userEmail",
       "placeholder": "Email Address"
     },
     {
       "type": "password",
       "name": "userPassword",
-      "placeholder": "password"
+      "placeholder": "Password"
     },
     {
       "type": "text",
-      "name": "password",
+      "name": "PasswordConfirmation",
       "placeholder": "Password Confirmation"
     },
     {
@@ -121,6 +94,9 @@
     "displayName": "",
     "email": "",
     "userPassword": "",
-    "confirmPassword": ""
+    "confirmPassword": "",
+    "radio": "",
+    "checkbox": "",
+    "submit": ""
   }
 }

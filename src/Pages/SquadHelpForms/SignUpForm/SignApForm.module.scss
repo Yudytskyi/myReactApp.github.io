@@ -1,12 +1,11 @@
 @import '../../../common/commonStyles';
 
-.loginForm {
+.signApForm {
   @include flexCenter(row, space-between);
-  margin-top: 25px;
   flex-wrap: wrap;
+  margin-top: 25px;
 
   &__content {
-    margin-top: 15px;
     max-width: 600px;
     min-height: 650px;
     margin: 130px auto 30px;
@@ -46,38 +45,49 @@
       cursor: pointer;
     }
 
+    &_firstName,
+    &_lastName,
+    &_displayName,
     &_userEmail,
     &_userPassword,
+    &_PasswordConfirmation,
     &_submit {
       border: 1px solid white;
       border-radius: 4px;
-      width: 100%;
+      width: 47.5%;
     }
-    &_rememberMe {
+    &_radio {
+      display: flex;
+      align-items: center;
+      border: 1px solid white;
+      width: 100%;
+      & > div {
+        color: white;
+        p {
+          margin: 0;
+          font-size: 1.3rem;
+          font-weight: lighter;
+          letter-spacing: 1.8px;
+        }
+        span {
+          letter-spacing: 0;
+          font-size: 15px;
+          font-weight: lighter;
+        }
+      }
+    }
+    &_checkbox {
+      width: 100%;
       height: initial;
       color: white;
-      width: 50%;
       font-size: 1rem;
       font-weight: lighter;
       letter-spacing: 1px;
     }
-    &_forgotPassword {
-      height: initial;
-      & > div {
-        width: max-content;
-        right: 0;
-        p {
-          width: max-content;
-          margin: 0;
-          font-size: 1rem;
-          font-weight: lighter;
-          letter-spacing: 1px;
-          color: white;
-        }
-      }
-    }
+
     &_submit {
       @include flexCenter;
+      width: 100%;
       margin-top: 25px;
       border: 1px solid #28d2d0;
       color: white;
@@ -90,8 +100,12 @@
   &__input {
     box-sizing: border-box;
 
+    &_firstName,
+    &_lastName,
+    &_displayName,
     &_userEmail,
     &_userPassword,
+    &_PasswordConfirmation,
     &_submit {
       width: 100%;
       display: flex;
@@ -101,12 +115,15 @@
       padding: 20px 25px;
       font-size: 1.3rem;
     }
-    &_rememberMe {
+    &_radio,
+    &_checkbox {
       margin: 0 10px 0;
       width: 1rem;
       height: 1rem;
     }
-    &_forgotPassword,
+    &_radio {
+      margin-top: -20px;
+    }
     &_submit {
       position: absolute;
       z-index: -1;

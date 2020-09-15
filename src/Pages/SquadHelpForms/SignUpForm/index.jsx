@@ -1,48 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
-import Input from '../components/Input';
-import configSquadHelpForms from '../../../configs/configSquadHelpForms.json';
-import styles from './SignUpForm.module.scss';
+// import PropTypes from 'prop-types';
 
 import { SIGN_UP_VALIDATION_SCHEMA } from '../constants';
+import configSquadHelpForms from '../../../configs/configSquadHelpForms.json';
+import CreateForm from '../components/CreateForm';
+import styles from './SignApForm.module.scss';
 
-const { fields, initialValues } = configSquadHelpForms;
-
-function SignUpForm(props) {
-  const { onSubmit } = props;
-
-  const mapField = (field, index) => (
-    <Field key={index} {...field}>
-      {fieldProps => (
-        <label className={styles.form__label}>
-          <Input className={styles.form__input} {...fieldProps} {...field} />
-          <ErrorMessage className={styles.form__error} name={fieldProps.field.name} />
-        </label>
-      )}
-    </Field>
-  );
+function SignApForm({ onSubmit }) {
+  const { signApFields, signApInitialValues } = configSquadHelpForms;
 
   return (
-    <Formik onSubmit={onSubmit} initialValues={initialValues} validationSchema={SIGN_UP_VALIDATION_SCHEMA}>
-      {formikProps => (
-        <Form className={styles.form}>
-          {fields.map(mapField)}
-
-          <button className={styles.form__button} type="submit">
-            Sign Up
-          </button>
-        </Form>
-      )}
-    </Formik>
+    <div className={styles.signApForm__content}>
+      <div className={styles.signApForm__info}>
+        <h2>CREATE AN ACCOUNT</h2>
+        <h4>We always keep your name and email address private.</h4>
+      </div>
+      <div className={styles.signApForm__form}>
+        <CreateForm
+          onSubmit={onSubmit}
+          validationSchema={SIGN_UP_VALIDATION_SCHEMA}
+          fields={signApFields}
+          initialValues={signApInitialValues}
+          formName="signApForm"
+        />
+      </div>
+    </div>
   );
 }
 
-SignUpForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// SignApForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
-SignUpForm.defaultProps = {};
+// SignApForm.defaultProps = {};
 
-export default SignUpForm;
+export default SignApForm;

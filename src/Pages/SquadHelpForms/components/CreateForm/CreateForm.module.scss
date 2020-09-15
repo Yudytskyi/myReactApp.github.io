@@ -1,92 +1,125 @@
-@import '../../../../common/commonStyles';
+@import '../../SquadHelpForms.module.scss';
 
-.form {
-  @include flexCenter(row, space-between);
-  flex-wrap: wrap;
-  margin-top: 18px;
-  min-width: 285px;
-  &__input {
-    box-sizing: border-box;
-    border: 2px solid white;
-    border-radius: 4px;
-    padding: 21px 23px;
-    margin: 0;
-    color: #9ca8b7;
-    font-size: 1rem;
-  }
-  &__error {
-    position: absolute;
-    left: 15px;
-    bottom: -5px;
-    margin: 5px;
-    color: red;
-  }
-  &__label {
-    position: relative;
-    margin: 20px 0;
-    display: flex;
-    & > input {
-      width: 100%;
-    }
-  }
-  .text,
-  .email,
-  .password {
-    width: 100%;
-    max-width: 48%;
-    margin: 5px 0;
-  }
-  .radio {
-    display: flex;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid white;
-    height: 40px;
-    color: white;
-    & > input {
-      width: initial;
-      margin: 2px 5px 0 0;
-    }
-  }
-  .checkbox {
-    display: flex;
-    width: 100%;
-    height: 40px;
-    padding: 0 15px;
-    margin: 5px;
-    color: white;
-    & > input {
-      width: initial;
-      margin: 2px 10px 0 0;
-    }
-  }
-  .button {
-    width: 100%;
+// .form {
+//   .label {
+//     &__text,
+//     &__email,
+//     &__password,
+//     &__checkbox,
+//     &__radio {
+//       &_signApForm {
+//         border: 1px solid white;
+//         border-radius: 4px;
+//         min-width: 290px;
+//       }
+//       &_loginForm {
+//         border: 1px solid white;
+//         border-radius: 4px;
+//         min-width: 600px;
+//       }
+//     }
+//     &__radio,
+//     &__button {
+//       &_signApForm {
+//         position: relative;
+//         width: 100%;
+//         color: white;
+//         min-width: 600px;
+//       }
+//       &_loginForm {
+//         color: white;
+//         min-width: 600px;
+//       }
+//     }
+//     &__checkbox {
+//       &_signApForm {
+//         border: none;
+//         display: flex;
+//         border-radius: 4px;
+//         width: 100%;
+//         color: white;
+//         min-width: 290px;
+//       }
+//       &_loginForm {
+//         color: white;
+//         min-width: 600px;
+//       }
+//     }
+//     &__radio {
+//       &_signApForm {
+//       }
+//       &_loginForm {
+//         min-width: 600px;
+//       }
+//     }
+//   }
 
-    .wrapper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #28d2d0;
-      border-style: none;
-      border-radius: 4px;
-      color: white;
-      @include flexCenter;
-    }
-  }
-  .wrapper {
-    width: 100%;
-  }
-  .title {
-    margin: 0;
-    font-size: 20px;
-    letter-spacing: 2px;
-  }
-  .subtitle {
-    margin: 0;
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-}
+//   .input {
+//     &__text,
+//     &__email,
+//     &__password,
+//     &__checkbox,
+//     &__radio {
+//       &_signApForm {
+//         font-size: 1.3rem;
+//         letter-spacing: 1px;
+//       }
+//       &_loginForm {
+//         box-sizing: border-box;
+//         border: 1px solid white;
+//         padding: 21px 23px;
+//         margin: 0;
+//         color: #9ca8b7;
+//         font-size: 1rem;
+//         min-width: 600px;
+//       }
+//     }
+//     &__checkbox,
+//     &__radio {
+//       &_signApForm {
+//         width: initial;
+//       }
+//       &_loginForm {
+//       }
+//     }
+//     &__checkbox,
+//     &__radio,
+//     &__button {
+//       display: flex;
+//       width: 100%;
+//       height: 40px;
+//       padding: 0 15px;
+//       margin: 5px;
+//       color: white;
+//     }
+//     &__radio {
+//       &_signApForm {
+//       }
+//       &_loginForm {
+//         min-width: 600px;
+//       }
+//     }
+//   }
+//   &__error {
+//     position: absolute;
+//     left: 15px;
+//     bottom: -5px;
+//     margin: 5px;
+//     color: red;
+//   }
+//   .wrapper {
+//     width: 100%;
+//   }
+//   .title {
+//     margin: 0;
+//     font-size: 20px;
+//     letter-spacing: 2px;
+//     color: white;
+//   }
+//   .subtitle {
+//     margin: 0;
+//     font-size: 13px;
+//     letter-spacing: 1px;
+//     color: white;
+//   }
+// }
